@@ -21,5 +21,10 @@ tab1 = ttk.Frame(tabControl)
 tabControl.add(tab1, text="Parser")
 tabs.parserTab(tab1)
 
+#PARSER  TAB
+tab2 = ttk.Frame(tabControl)
+tabControl.add(tab2, text="Reglas")
+tabs.rulesTab(tab2)
+
 #RUN VISUAL
 window.mainloop()

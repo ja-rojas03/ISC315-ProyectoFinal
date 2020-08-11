@@ -7,6 +7,10 @@ from tkinter import filedialog
 import customParser
 
 files = {}
+xmlMesg = ''
+xmlValid = False
+dtdMesg = ''
+dtdValid = False
 
 def parserTab(tab1):
     #XML SECTION
@@ -42,6 +46,9 @@ def parserTab(tab1):
     txt3.grid(column=1, row=17)
     txt3.insert(INSERT, "Validar ..")
 
+def rulesTab(tab2):
+    labelFrame = ttk.LabelFrame(tab2, text="Seleccione una regla")
+    labelFrame.grid(column=0, row=5)
 
 def openFile(fileType, extension, txt):
     text = "Evaluando " + extension + "...."
