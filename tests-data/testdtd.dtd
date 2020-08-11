@@ -1,4 +1,9 @@
-<!ELEMENT receta (título, ingredientes, procedimiento)>
+<!ELEMENT recetas (receta*)>
+<!ELEMENT receta (titulo, ingredientes, procedimiento, herramientas)>
 <!ELEMENT titulo (#PCDATA)>
-<!ELEMENT ingredientes (#PCDATA)>
-<!ELEMENT procedimiento (#PCDATA)>
+<!ELEMENT ingredientes (ingrediente*)>
+<!ELEMENT ingrediente (#PCDATA)>
+<!ELEMENT procedimiento (paso*)>
+<!ELEMENT paso (#PCDATA)>
+<!ELEMENT herramientas (herramienta*)>
+<!ELEMENT herramienta (#PCDATA)>

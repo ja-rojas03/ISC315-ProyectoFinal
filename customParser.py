@@ -1,3 +1,7 @@
+def Convert(lst): 
+    res_dct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)} 
+    return res_dct 
+
 def parser(nombreArch,nombreDTD):
     xmlValid = False
     xmlMesg= ''
@@ -116,18 +120,10 @@ def parser(nombreArch,nombreDTD):
     if lista_aux[1] == pila_cerrado[-1]:
         boleano = True
 
-    # Agregamos a la lista de booleanos si los elementos concuerdan en las listas.
-    bolarr = []
-    if boleano:
-        for lista1 in lista_aux[1:]:
-            for lista2 in pila_cerrado:
-                if lista1 == lista2:
-                    bolarr.append(True)
-
     # Revisamos que haya pasado satisfactoriamente por el primer conteo de tags, y si lo hizo, entonces revisamos
     # si el número de tags es igual al número de verdaderos que se tienen.
     if chequeo:
-        if len(bolarr) + 1 != len(lista_aux):
+        if len(lista_aux) - 1 != len(pila_cerrado):
             xmlMesg = "Error los tag no estan correctos"
         else:
             xmlMesg = "XML Formado correctamente."
@@ -143,16 +139,15 @@ def parser(nombreArch,nombreDTD):
     for lin in dtd:
         listadtd.append(lin.split(' ')[1])
 
-    # Comparamos los elementos del XML y DTD para ver si correponden y guardamos un True si lo hace
-    bolarr2 = []
-    for comparar1 in lista_aux:
-        for comparar2 in listadtd:
-            if comparar1 == comparar2:
-                bolarr2.append(True)
-
     # Comparamos al igual que anteriormente que si el tamaño de la lista de tags del dtd es igual a la cantidad de verdaderos,
     # ya que si lo es, esto significa que el XML se encuentra pareado con el DTD.
-    if len(listadtd) == len(bolarr2):
+    dtd_dict = {}
+    for i in lista_aux:
+        if (i == lista_aux[0]):
+            continue
+        dtd_dict[i] = i
+
+    if len(listadtd) ==  len(dtd_dict):
         dtdMesg = "El XML corresponde con el DTD"
         dtdValid = True
     else:

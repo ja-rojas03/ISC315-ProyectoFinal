@@ -1,10 +1,14 @@
-# from pyswip import Prolog, Query, Variable, Functor
+from pyswip import Prolog, Query, Variable, Functor
 from tkinter import *
 from tkinter import scrolledtext
 from tkinter import ttk
 from tkinter.ttk import *
 from tkinter import filedialog
 import customParser
+import test
+
+prolog = Prolog()
+prolog.consult("reglas.pl")
 
 files = {}
 xmlMesg = ''
@@ -70,5 +74,8 @@ def parseFiles(nombreArch, nombreDTD, txt):
     text = "XML: " + xmlMesg + "\n" + "DTD: " + dtdMesg
     txt.delete("1.0", END)
     txt.insert(INSERT, text)
+    test.asserta(files['xml'])
+    test.contiene()
+
 
 
