@@ -9,7 +9,7 @@ root = tree.getroot()
 recetas = {}
 
 for elem in root:
-    recetas[elem[0].text] = {}
+    name = recetas[elem[0].text]
     ingredients = []
     steps = []
     tools = []
@@ -20,9 +20,6 @@ for elem in root:
     for tool in elem[3]:
         tools.append(tool.text)
     
-    recetas[elem[0].text]['ingredients'] = ingredients
-    recetas[elem[0].text]['steps'] = steps
-    recetas[elem[0].text]['tools'] = tools
-
-
-print(json.dumps(recetas, indent = 4))
+    prolog.asserta("ingredientes(" + name + ", " + ingredients + ")")
+    prolog.asserta("procedimientos(" + name + ", " + steps + ")")
+    prolog.asserta("herramientas(" + name + ", " + tools + ")")
