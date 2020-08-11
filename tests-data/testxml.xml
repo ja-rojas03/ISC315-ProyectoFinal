@@ -1,7 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE receta SYSTEM "testdtd.dtd">
-<receta>
-<titulo>...</titulo>
-<ingredientes>...</ingredientes>
-<procedimiento>...</procedimiento>
-</receta>
+<recetas>
+    <receta>
+        <titulo>sopa_de_cebolla</titulo>
+        <ingredientes>
+            <ingrediente>cebolla</ingrediente>
+            <ingrediente>caldo</ingrediente>
+            <ingrediente>agua</ingrediente>
+        </ingredientes>
+        <procedimiento>
+            <paso>pelar</paso>
+            <paso>cortar</paso>
+            <paso>hervir</paso>
+        </procedimiento>
+        <herramientas>
+            <herramienta>cuchillo</herramienta>
+            <herramienta>Olla</herramienta>
+        </herramientas>
+    </receta>
+    <receta>
+        <titulo>bizocho_vainilla</titulo>
+        <ingredientes>
+            <ingrediente>huevo</ingrediente>
+            <ingrediente>mantequilla</ingrediente>
+            <ingrediente>azucar</ingrediente>
+            <ingrediente>harina</ingrediente>
+            <ingrediente>vainilla</ingrediente>
+        </ingredientes>
+        <procedimiento>
+            <paso>agregar</paso>
+            <paso>mezclar</paso>
+            <paso>batir</paso>
+            <paso>hornear</paso>
+        </procedimiento>
+        <herramientas>
+            <herramienta>batidora</herramienta>
+            <herramienta>horno</herramienta>
+        </herramientas>
+    </receta>
+    <receta>
+        <titulo>pizza</titulo>
+        <ingredientes>
+            <ingrediente>harina</ingrediente>
+            <ingrediente>sal</ingrediente>
+            <ingrediente>agua</ingrediente>
+            <ingrediente>aceite</ingrediente>
+            <ingrediente>levadura</ingrediente>
+        </ingredientes>
+        <procedimiento>
+            <paso>mezclar</paso>
+            <paso>batir</paso>
+            <paso>mezclar_aceite</paso>
+            <paso>amazar</paso>
+            <paso>reposar</paso>
+            <paso>dar_forma</paso>
+            <paso>preparar</paso>
+            <paso>hornear</paso>
+        </procedimiento>
+        <herramientas>
+            <herramienta>rodillo</herramienta>
+            <herramienta>horno</herramienta>
+        </herramientas>
+    </receta>
+</recetas>
