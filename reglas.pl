@@ -1,11 +1,11 @@
 % ingredientes
 ingredientes(sopa_de_cebolla,[cebolla,caldo,agua]).
-ingredientes(bizocho_vainilla,[huevo,mantequilla,azucar,harina,vainilla]).
+ingredientes(bizcocho_vainilla,[huevo,mantequilla,azucar,harina,vainilla]).
 ingredientes(pizza,[harina,sal,agua,aceite,levadura]).
 
 % procedimientos
 procedimientos(sopa_de_cebolla,[pelar,cortar,hervir]).
-procedimientos(bizocho_vainilla,[agregar,mezclar,batir,hornear]).
+procedimientos(bizcocho_vainilla,[agregar,mezclar,batir,hornear]).
 procedimientos(pizza,[mezclar,batir,mezclar_aceite,amazar,reposar,dar_forma,preparar,hornear]).
 
 pertenece(X,[X|_]).
