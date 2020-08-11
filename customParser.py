@@ -87,14 +87,14 @@ def parser(nombreArch,nombreDTD):
 
     for elemen in pila_abierto[2:]:
         for caracel in elemen:
-            if caracel is '/':
+            if caracel == '/':
                 lista_intermedia.append(elemen)
                 pila_abierto.remove(elemen)
 
     for el in lista_intermedia:
         cerrado += el
         for carc in el:
-            if carc is '/':
+            if carc == '/':
                 lista_nueva.append(cerrado.split("/"))
                 cerrado = ''
 
