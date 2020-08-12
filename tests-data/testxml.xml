@@ -3,6 +3,7 @@
 <recetas>
     <receta>
         <titulo>sopa_de_cebolla</titulo>
+        <total_calorias>560</total_calorias>
         <ingredientes>
             <ingrediente>cebolla</ingrediente>
             <ingrediente>caldo</ingrediente>
@@ -20,6 +21,7 @@
     </receta>
     <receta>
         <titulo>bizcocho_vainilla</titulo>
+        <total_calorias>1800</total_calorias>
         <ingredientes>
             <ingrediente>huevo</ingrediente>
             <ingrediente>mantequilla</ingrediente>
@@ -40,12 +42,15 @@
     </receta>
     <receta>
         <titulo>pizza</titulo>
+        <total_calorias>2730</total_calorias>
         <ingredientes>
             <ingrediente>harina</ingrediente>
             <ingrediente>sal</ingrediente>
-            <ingrediente>agua</ingrediente>
+            <ingrediente>salsa</ingrediente>
             <ingrediente>aceite</ingrediente>
             <ingrediente>levadura</ingrediente>
+            <ingrediente>queso</ingrediente>
+            <ingrediente>pepperoni</ingrediente>
         </ingredientes>
         <procedimiento>
             <paso>mezclar</paso>

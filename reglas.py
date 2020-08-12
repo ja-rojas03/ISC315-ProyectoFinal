@@ -1,12 +1,12 @@
 import xml.etree.ElementTree as ET
 import json
-# from pyswip import Prolog
+from pyswip import Prolog
 from tkinter import scrolledtext
 from tkinter import *
 import views
 
-# prolog = Prolog()
-# prolog.consult("reglas.pl")
+prolog = Prolog()
+prolog.consult("reglas.pl")
 
 def getList(array):
     pl = '['

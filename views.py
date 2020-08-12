@@ -1,4 +1,4 @@
-# from pyswip import Prolog, Query, Variable, Functor
+from pyswip import Prolog, Query, Variable, Functor
 from tkinter import *
 from tkinter import scrolledtext
 from tkinter import ttk
@@ -11,8 +11,8 @@ import tab2
 import tab3
 import tab4
 
-# prolog = Prolog()
-# prolog.consult("reglas.pl")
+prolog = Prolog()
+prolog.consult("reglas.pl")
 
 files = {}
 xmlMesg = ''

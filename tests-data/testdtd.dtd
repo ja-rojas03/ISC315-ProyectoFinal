@@ -1,6 +1,7 @@
 <!ELEMENT recetas (receta*)>
-<!ELEMENT receta (titulo, ingredientes, procedimiento, herramientas)>
+<!ELEMENT receta (titulo, ingredientes, procedimiento, herramientas, total_calorias)>
 <!ELEMENT titulo (#PCDATA)>
+<!ELEMENT total_calorias (#PCDATA)>
 <!ELEMENT ingredientes (ingrediente*)>
 <!ELEMENT ingrediente (#PCDATA)>
 <!ELEMENT procedimiento (paso*)>

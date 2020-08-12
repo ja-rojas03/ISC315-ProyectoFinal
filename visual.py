@@ -1,4 +1,4 @@
-# from pyswip import Prolog, Query, Variable, Functor
+from pyswip import Prolog, Query, Variable, Functor
 from tkinter import *
 from tkinter import ttk
 from tkinter.ttk import *
