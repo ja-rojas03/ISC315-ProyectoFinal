@@ -3,6 +3,7 @@ def Convert(lst):
     return res_dct 
 
 def parser(nombreArch,nombreDTD):
+
     xmlValid = False
     xmlMesg= ''
     dtdValid = False
@@ -18,19 +19,14 @@ def parser(nombreArch,nombreDTD):
     completo = ''
 
     # Abrir archivo XML
-    # nombreArch = input("Nombre del XML: ")
     arch = open(nombreArch, 'r')
 
     # Eliminar el enter de cada linea
     for linea in arch:
         list.append(linea.replace("\n", ''))
 
-    # Agregar espacio al final de la lista
-    list.append(" ")
-
     # Copiar los elementos a una lista auxiliar
-    for ele in list:
-        copia_list.append(ele)
+    copia_list = list
 
     # Revisamos cuantos <> hay
     for cosa in list[2:]:
@@ -74,6 +70,7 @@ def parser(nombreArch,nombreDTD):
             if car == '>':
                 lista_aux2.append(aux.split('>'))
 
+
     # Hacemos una pila para comparar cada tag
     pila_abierto = []
     pila_cerrado = []
@@ -84,8 +81,7 @@ def parser(nombreArch,nombreDTD):
     cerrado = ''
     for l in lista_aux2[-1]:
         for l2 in l:
-            for carac in l2:
-                letrero += carac
+            letrero += l2.strip()
         pila_abierto.append(letrero)
         letrero = ''
 
@@ -95,30 +91,21 @@ def parser(nombreArch,nombreDTD):
                 lista_intermedia.append(elemen)
                 pila_abierto.remove(elemen)
 
+
     for el in lista_intermedia:
         cerrado += el
         for carc in el:
             if carc == '/':
-                lista_nueva.append(cerrado.split("/"))
+                pila_cerrado.append(cerrado.split("/")[1])
                 cerrado = ''
 
-    for i in lista_nueva:
-        for elemento in i[1:]:
-            pila_cerrado.append(elemento)
 
     for objeto in pila_abierto[1:]:
         lista_aux.append(objeto)
-
     # Quitamos el espacio del final de la lista
-    for blanco in lista_aux:
-        if blanco == '':
-            lista_aux.remove(blanco)
+    lista_aux.remove('')
+    pila_abierto.remove('')
 
-    # Revisamos que el primer elemento de la lista sea igual al último elemento de la lista de los tags de cierre.
-    boleano = False
-
-    if lista_aux[1] == pila_cerrado[-1]:
-        boleano = True
 
     # Revisamos que haya pasado satisfactoriamente por el primer conteo de tags, y si lo hizo, entonces revisamos
     # si el número de tags es igual al número de verdaderos que se tienen.
@@ -126,12 +113,18 @@ def parser(nombreArch,nombreDTD):
         if len(lista_aux) - 1 != len(pila_cerrado):
             xmlMesg = "Error los tag no estan correctos"
         else:
-            xmlMesg = "XML Formado correctamente."
-            xmlValid = True
+            for element in pila_abierto[2:]:
+                pila_cerrado.remove(element)
+            if(len(pila_cerrado) == 0 and len(pila_abierto) == 2):
+                xmlMesg = "XML Formado correctamente."
+                xmlValid = True
+            else:
+                xmlMesg = "Los tags del XML no cierran correctamente."
+
 
     # Abrimos archivo DTD.
-    # nombreDTD = input("Escriba el DTD: ")
     dtd = open(nombreDTD , 'r')
+
 
     listadtd = []
 
@@ -154,3 +147,5 @@ def parser(nombreArch,nombreDTD):
         dtdMesg = "El XML no corresponde con el DTD"
 
     return xmlMesg,xmlValid,dtdMesg,dtdValid
+
+
