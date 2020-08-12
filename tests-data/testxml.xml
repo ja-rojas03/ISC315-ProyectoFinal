@@ -2,6 +2,25 @@
 <!DOCTYPE recetas SYSTEM "testdtd.dtd">
 <recetas>
     <receta>
+        <titulo>pan_de_guineo</titulo>
+        <total_calorias>2334.24</total_calorias>
+        <ingredientes>
+            <ingrediente>harina</ingrediente>
+            <ingrediente>guineo</ingrediente>
+            <ingrediente>azucar</ingrediente>
+            <ingrediente>vainilla</ingrediente>
+        </ingredientes>
+        <procedimiento>
+            <paso>pelar</paso>
+            <paso>batir</paso>
+            <paso>hornear</paso>
+        </procedimiento>
+        <herramientas>
+            <herramienta>batidora</herramienta>
+            <herramienta>horno</herramienta>
+        </herramientas>
+    </receta>
+    <receta>
         <titulo>sopa_de_cebolla</titulo>
         <total_calorias>560</total_calorias>
         <ingredientes>

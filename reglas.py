@@ -7,6 +7,7 @@ import views
 
 prolog = Prolog()
 prolog.consult("reglas.pl")
+recetas = {}
 
 def getList(array):
     pl = '['
@@ -26,14 +27,15 @@ def asserta(file):
     root = tree.getroot()
     for elem in root:
         name = elem[0].text
+        recetas[name] = elem[1].text # calories
         ingredients = []
         steps = []
         tools = []
-        for ingredient in elem[1]:
+        for ingredient in elem[2]:
             ingredients.append(ingredient.text)
-        for step in elem[2]:
+        for step in elem[3]:
             steps.append(step.text)
-        for tool in elem[3]:
+        for tool in elem[4]:
             tools.append(tool.text)
         
         prolog.asserta("ingredientes(" + name + ", " + getList(ingredients) + ")")
@@ -77,3 +79,6 @@ def no_tiene_ingrediente(ingrediente,window):
 def no_tiene_ingrediente_ni_herramienta(ingrediente,herramienta,window):
     salida = list(prolog.query("no_tiene_ingrediente_ni_herramienta(" + ingrediente.get() + "," + herramienta.get() + ",Salida)"))
     views.printToScreen(salida, 'platos', 14, window)
+
+def getRecetas():
+    return recetas

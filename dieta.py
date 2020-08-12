@@ -1,6 +1,7 @@
 import schemeParser
 import math
 import views
+import reglas
 
 def calcularGrasaCorporal(sexo, peso, edad, altura, tmb, window  ):
 
@@ -17,7 +18,20 @@ def calcularGrasaCorporal(sexo, peso, edad, altura, tmb, window  ):
     grasaCorporal = "(- (- " + str(actualSum) + " " + mult3 +") 5.4)"
     value = schemeParser.evaluate(grasaCorporal)
     calories = calcularCaloriasDiarias(sexo, peso, altura, edad, tmb)
+    recetas = reglas.getRecetas()
     values = {}
+    values['less_calories'] = []
+    values['same_calories'] = []
+    values['more_calories'] = []
+
+    for key in recetas:
+        if float(recetas[key]) < calories:
+            values['less_calories'].append(key)
+        if float(recetas[key]) == calories:
+            values['same_calories'].append(key) 
+        if float(recetas[key]) > calories:
+            values['more_calories'].append(key) 
+
     values['fat'] = value
     values['calories'] = calories
 
