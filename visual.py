@@ -1,4 +1,4 @@
-from pyswip import Prolog, Query, Variable, Functor
+# from pyswip import Prolog, Query, Variable, Functor
 from tkinter import *
 from tkinter import ttk
 from tkinter.ttk import *
@@ -30,6 +30,11 @@ views.rulesTab(tab2)
 tab3 = ttk.Frame(tabControl)
 tabControl.add(tab3, text="Reglas")
 views.moreRulesTab(tab3)
+
+#DIET  TAB
+tab4 = ttk.Frame(tabControl)
+tabControl.add(tab4, text="Dieta")
+views.dietTab(tab4)
 
 #RUN VISUAL
 window.mainloop()

@@ -1,4 +1,4 @@
-from pyswip import Prolog, Query, Variable, Functor
+# from pyswip import Prolog, Query, Variable, Functor
 from tkinter import *
 from tkinter import scrolledtext
 from tkinter import ttk
@@ -9,6 +9,7 @@ import reglas
 import tab1
 import tab2
 import tab3
+import tab4
 
 # prolog = Prolog()
 # prolog.consult("reglas.pl")
@@ -27,6 +28,9 @@ def rulesTab(content):
 
 def moreRulesTab(content):
     tab3.lastThreeRulesView(content)
+
+def dietTab(content):
+    tab4.dietView(content)
 
 ### HELPER FUNCTIONS
 def openFile(fileType, extension, txt):
@@ -55,6 +59,9 @@ def printToScreen(salida,tipo,row,window):
     print('SALIDA',salida)
     txt = scrolledtext.ScrolledText(window, width=40, height=5)
     txt.grid(column=0, row=row)
+    if(tipo == 'Grasa Corporal'):
+        txt.insert(INSERT, tipo + ' : ' + str(salida))
+        return
 
     if salida:
         txt.insert(INSERT, tipo + ' disponibles:')
