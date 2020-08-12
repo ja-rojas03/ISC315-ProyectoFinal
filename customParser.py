@@ -115,6 +115,7 @@ def parser(nombreArch,nombreDTD):
         else:
             for element in pila_abierto[2:]:
                 pila_cerrado.remove(element)
+                pila_abierto.remove(element)
             if(len(pila_cerrado) == 0 and len(pila_abierto) == 2):
                 xmlMesg = "XML Formado correctamente."
                 xmlValid = True
