@@ -144,9 +144,12 @@ def parser(nombreArch,nombreDTD):
     if len(listadtd) ==  len(dtd_dict):
         dtdMesg = "El XML corresponde con el DTD"
         dtdValid = True
+
+        for element in listadtd:
+            if element not in dtd_dict:
+                dtdMesg = "El XML no corresponde con el DTD"
+                dtdValid = False
     else:
         dtdMesg = "El XML no corresponde con el DTD"
 
     return xmlMesg,xmlValid,dtdMesg,dtdValid
-
-
