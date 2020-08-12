@@ -17,8 +17,6 @@ def lastThreeRulesView(content):
     herr = Entry(labelFrame)
     herr.grid(column=1, row=2)
 
-    print('REEEEE', herr.get())
-
     btn_1 = Button(labelFrame, text="Buscar", command=lambda: reglas.no_tiene_herramienta(herr, labelFrame))
     btn_1.grid(column=1, row=3)
 

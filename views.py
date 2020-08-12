@@ -57,14 +57,20 @@ def parseFiles(nombreArch, nombreDTD, txt):
 
 def printToScreen(salida,tipo,row,window):
     print('SALIDA',salida)
-    txt = scrolledtext.ScrolledText(window, width=40, height=5)
-    txt.grid(column=0, row=row)
     if(tipo == 'Grasa Corporal'):
+        txt = scrolledtext.ScrolledText(window, width=60, height=6)
+        txt.grid(column=0, row=row)
+
         txt.insert(INSERT, tipo + ' : ' + str(salida['fat']) + '%' + '\n')
         txt.insert(INSERT, 'Calorias diarias para mantener el peso: ' + str(salida['calories']))
+        txt.insert(INSERT, '\nRecetas con menos calorias: ' + str(salida['less_calories']))
+        txt.insert(INSERT, '\nRecetas con la misma cantidad: ' + str(salida['same_calories']))
+        txt.insert(INSERT, '\nRecetas con mas calorias: ' + str(salida['more_calories']))
         return
 
     if salida:
+        txt = scrolledtext.ScrolledText(window, width=40, height=5)
+        txt.grid(column=0, row=row)
         txt.insert(INSERT, tipo + ' disponibles:')
         txt.insert(INSERT, '\n-----------------\n')
         salida_dict = {}
