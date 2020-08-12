@@ -18,4 +18,17 @@ def calcularGrasaCorporal(sexo, peso, edad, altura, window ):
         value =schemeParser.evaluate(grasaCorporal)
         views.printToScreen(value, 'Grasa Corporal', 10, window)
 
-# calcularGrasaCorporal("Masculino", 81.6466 ,22, 180 )
+
+def calcularCaloriasDiarias(sexo,peso, altura, edad, tmb):
+
+    Hombres: TMB = 66 + (13,7 x peso en kg) + (5 x altura en cm) - (6,75 x edad en años)
+    Mujeres: TMB = 655 + (9,6 x peso en kg) + (1.8 x altura en cm) - (4,7 x edad en años)
+
+    if (sexo == "Masculino"):
+        mult1 = "(* 13.7 " + str(peso) + ")"
+        mult2 = "(* 5 " + str(altura) + ")"
+        mult3 = "(* 6.75 " + str(edad) + ")"
+    else:
+        mult1 = "(* 9.6 " + str(peso) + ")"
+        mult2 = "(* 1.8 " + str(altura) + ")"
+        mult3 = "(* 6.75 " + str(edad) + ")"

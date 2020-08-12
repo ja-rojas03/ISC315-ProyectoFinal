@@ -32,11 +32,11 @@ def dietView(content):
     peso = Entry(labelFrame)
     peso.grid(column=1, row=3)
 
-    var = IntVar()
-    R1 = Radiobutton(labelFrame, text="Masculino", variable=var, value=1)
+    var = StringVar()
+    R1 = Radiobutton(labelFrame, text="Masculino", variable=var, value="Masculino")
     R1.grid(column=0, row=6)
 
-    R2 = Radiobutton(labelFrame, text="Femenino", variable=var, value=2)
+    R2 = Radiobutton(labelFrame, text="Femenino", variable=var, value="Femenino")
     R2.grid(column=0, row=7)
 
     btn = Button(labelFrame, text="Buscar", command=lambda: dieta.calcularGrasaCorporal(var.get(),peso.get(), edad.get(),altura.get(), labelFrame))
