@@ -2,7 +2,7 @@ import schemeParser
 import math
 import views
 
-def calcularGrasaCorporal(sexo, peso, edad, altura, window, tmb ):
+def calcularGrasaCorporal(sexo, peso, edad, altura, tmb, window  ):
 
     IMC = (int)(float(peso))/((int)(int(altura)/100)^2)
     mult1 = "(* 1.20 " + str(IMC) + ")"
@@ -16,8 +16,13 @@ def calcularGrasaCorporal(sexo, peso, edad, altura, window, tmb ):
     actualSum = schemeParser.evaluate(sum)
     grasaCorporal = "(- (- " + str(actualSum) + " " + mult3 +") 5.4)"
     value = schemeParser.evaluate(grasaCorporal)
-    calories = calcularCaloriasDiarias(sexo, peso, altura, edad, tmb) 
-    views.printToScreen(value, 'Grasa Corporal', 10, window)
+    calories = calcularCaloriasDiarias(sexo, peso, altura, edad, tmb)
+    values = {}
+    values['fat'] = value
+    values['calories'] = calories
+
+
+    views.printToScreen(values, 'Grasa Corporal', 14, window)
 
 
 def calcularCaloriasDiarias(sexo,peso, altura, edad, tmb):
@@ -26,13 +31,19 @@ def calcularCaloriasDiarias(sexo,peso, altura, edad, tmb):
         mult1 = "(* 13.7 " + str(peso) + ")"
         mult2 = "(* 5 " + str(altura) + ")"
         mult3 = "(* 6.75 " + str(edad) + ")"
-        suma = "(+ 66 " + mult1 + " " + mult2 + " " + mult3 + ")" 
+        suma = "(+ 66 " + mult1 + ") "
+        sum2 = "(+ " + mult2 + " " + mult3 + ")"
+        totalSum = "(+" + suma + " " + str(sum2) + ")"
     else:
         mult1 = "(* 9.6 " + str(peso) + ")"
         mult2 = "(* 1.8 " + str(altura) + ")"
         mult3 = "(* 4.7 " + str(edad) + ")"
-        suma = "(+ 665 " + mult1 + " " + mult2 + " " + mult3 + ")"
+        suma = "(+ 665 " + mult1 + ") "
+        sum2 = "(+ " + mult2 + " " + mult3 + ")"
+        totalSum = "(+" + suma + " " + sum2 + ")"
 
-    result = "(* " + tmb + " " + suma + ")"
+    resSum = schemeParser.evaluate(totalSum)
+    print(resSum)
+    result = "(* " + tmb + " " + str(resSum) + ")"
     calories = schemeParser.evaluate(result)
     return calories

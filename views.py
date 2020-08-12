@@ -60,7 +60,8 @@ def printToScreen(salida,tipo,row,window):
     txt = scrolledtext.ScrolledText(window, width=40, height=5)
     txt.grid(column=0, row=row)
     if(tipo == 'Grasa Corporal'):
-        txt.insert(INSERT, tipo + ' : ' + str(salida))
+        txt.insert(INSERT, tipo + ' : ' + str(salida['fat']) + '%' + '\n')
+        txt.insert(INSERT, 'Calorias diarias para mantener el peso: ' + str(salida['calories']))
         return
 
     if salida:
