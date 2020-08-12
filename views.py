@@ -78,6 +78,8 @@ def printToScreen(salida,tipo,row,window):
             for k in a_dict:
                 txt.insert(INSERT,a_dict[k] + '\n')
     else:
+        txt = scrolledtext.ScrolledText(window, width=40, height=5)
+        txt.grid(column=0, row=row)
         txt.insert(INSERT, "No hay " + tipo + " disponibles ✖")
 
 
