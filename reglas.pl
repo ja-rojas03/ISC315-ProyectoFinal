@@ -3,10 +3,10 @@
 % ingredientes(bizcocho_vainilla,[huevo,mantequilla,azucar,harina,vainilla]).
 % ingredientes(pizza,[harina,sal,agua,aceite,levadura]).
 
-% % procedimientos
-% procedimientos(sopa_de_cebolla,[pelar,cortar,hervir]).
-% procedimientos(bizcocho_vainilla,[agregar,mezclar,batir,hornear]).
-% procedimientos(pizza,[mezclar,batir,mezclar_aceite,amazar,reposar,dar_forma,preparar,hornear]).
+% % herramientas
+% herramientas(sopa_de_cebolla,[pelar,cortar,hervir]).
+% herramientas(bizcocho_vainilla,[agregar,mezclar,batir,hornear]).
+% herramientas(pizza,[mezclar,batir,mezclar_aceite,amazar,reposar,dar_forma,preparar,hornear]).
 
 pertenece(X,[X|_]).
 pertenece(X,[_|Cola]):-pertenece(X,Cola).
@@ -23,18 +23,18 @@ contiene_el_ingrediente(Ingrediente,Salida)
      pertenece(Ingrediente,L).
 
 %%%% S E G U N D O   P U N T O
-contiene_al_menos_tres(X) 
+contiene_al_menos_tres(X,Salida) 
   :- ingredientes(Salida,L),
-     en_la_lista(L,X).
+     en_la_lista(X,L).
 
 %%%% T E R C E R  P U N T O
 contiene_herramienta(Herramienta,Salida) 
-  :- procedimientos(Salida,L),
+  :- herramientas(Salida,L),
      pertenece(Herramienta,L).
 
 %%%% C U A R T O  P U N T O
 no_tiene_herramienta(Herramienta,Salida) 
-  :- procedimientos(Salida,L),
+  :- herramientas(Salida,L),
      not(pertenece(Herramienta,L)).
 
 %%%% Q U I N T O  P U N T O
@@ -46,7 +46,7 @@ no_tiene_ingrediente(Ingrediente,Salida)
 no_tiene_ingrediente_ni_herramienta(Ingrediente, Herramienta,Salida)
   :- ingredientes(Salida,L),
      not(pertenece(Ingrediente,L)),
-     procedimientos(Salida,L2),
+     herramientas(Salida,L2),
      not(pertenece(Herramienta,L2)).
 
 %%%% E X T R A

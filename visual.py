@@ -1,12 +1,12 @@
-# from pyswip import Prolog, Query, Variable, Functor
+from pyswip import Prolog, Query, Variable, Functor
 from tkinter import *
 from tkinter import ttk
 from tkinter.ttk import *
-import tabs
+import views
 
 window = Tk()
 window.title("Calculadora de Dietas")
-window.geometry("720x480")
+window.geometry("720x700")
 
 tabControl = ttk.Notebook(window)
 
@@ -19,12 +19,17 @@ lbl.grid(column=0, row=0)
 #PARSER  TAB
 tab1 = ttk.Frame(tabControl)
 tabControl.add(tab1, text="Parser")
-tabs.parserTab(tab1)
+views.parserTab(tab1)
 
-#PARSER  TAB
+#RULES  TAB
 tab2 = ttk.Frame(tabControl)
 tabControl.add(tab2, text="Reglas")
-tabs.rulesTab(tab2)
+views.rulesTab(tab2)
+
+#RULES  TAB
+tab3 = ttk.Frame(tabControl)
+tabControl.add(tab3, text="Reglas")
+views.moreRulesTab(tab3)
 
 #RUN VISUAL
 window.mainloop()
